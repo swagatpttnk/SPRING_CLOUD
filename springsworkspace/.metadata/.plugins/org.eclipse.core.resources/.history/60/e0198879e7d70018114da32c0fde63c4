@@ -1,0 +1,5 @@
+package com.sppt.studentservice.studentlookup.model;
+
+public class Student {
+
+}

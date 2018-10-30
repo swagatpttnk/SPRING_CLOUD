@@ -1,0 +1,5 @@
+package com.sppt.studentservice.studentlookup.controller;
+
+public class StudentLookupController {
+
+}

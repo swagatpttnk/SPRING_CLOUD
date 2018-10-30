@@ -1,0 +1,22 @@
+package com.sppt.enrollmentservice.studentenrollment.controller;
+
+import java.math.BigDecimal;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.sppt.enrollmentservice.studentenrollment.model.RegistrationDetails;
+
+public class StudentEnrollmentController {
+
+	StudentLookupServiceProxy studentLookup_proxy;
+	/*Using FEIGN Client*/
+	@GetMapping("/student-enrollment-feign/{regId}")
+	public RegistrationDetails getRegistrationDetails(@PathVariable String regId){
+		
+		RegistrationDetails response = studentLookup_proxy.lookupStudent(regId);
+		
+		return new CurrencyConversionBean(response.getId(),from,to,response.getConversionMultiple(),
+				quantity,quantity.multiply(response.getConversionMultiple()),response.getPort()); 
+	}
+}

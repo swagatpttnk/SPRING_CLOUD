@@ -1,0 +1,2 @@
+spring.application.name=student-enrollment
+server.port=5100

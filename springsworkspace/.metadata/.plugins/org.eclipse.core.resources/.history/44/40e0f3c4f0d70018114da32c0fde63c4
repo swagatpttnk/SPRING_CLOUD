@@ -1,0 +1,5 @@
+package com.sppt.enrollmentservice.studentenrollment.model;
+
+public class RegistrationDetails {
+
+}

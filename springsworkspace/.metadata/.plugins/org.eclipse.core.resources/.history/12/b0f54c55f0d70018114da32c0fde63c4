@@ -1,0 +1,21 @@
+package com.sppt.enrollmentservice.studentenrollment.controller;
+
+import java.math.BigDecimal;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.in28minutes.microservices.currencyconversionservice.CurrencyConversionBean;
+
+public class StudentEnrollmentController {
+
+	/*Using FEIGN Client*/
+	@GetMapping("/student-enrollment-feign/{regId}")
+	public RegistrationDetails convertCurrencyFeign(@PathVariable String regId){
+		
+		CurrencyConversionBean response = proxy.retrieveExchangeValue(from, to);
+		
+		return new CurrencyConversionBean(response.getId(),from,to,response.getConversionMultiple(),
+				quantity,quantity.multiply(response.getConversionMultiple()),response.getPort()); 
+	}
+}

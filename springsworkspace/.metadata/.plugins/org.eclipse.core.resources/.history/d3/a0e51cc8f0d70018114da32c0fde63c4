@@ -1,0 +1,15 @@
+package com.sppt.enrollmentservice.studentenrollment.model;
+
+import javax.persistence.Column;
+import javax.persistence.Id;
+
+public class RegistrationDetails {
+
+	private Long id;
+	private String firstName;
+	private String lastName;
+	private String registrationId;	
+	private int port;
+	private String registrationStatus;
+
+}

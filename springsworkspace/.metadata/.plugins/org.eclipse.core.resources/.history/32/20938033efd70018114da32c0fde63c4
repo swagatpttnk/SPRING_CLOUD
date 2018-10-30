@@ -1,0 +1,5 @@
+package com.sppt.enrollmentservice.studentenrollment.controller;
+
+public class StudentEnrollmentController {
+
+}

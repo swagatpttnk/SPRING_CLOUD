@@ -1,0 +1,16 @@
+package com.sppt.enrollmentservice.studentenrollment.controller;
+
+import org.springframework.cloud.openfeign.FeignClient;
+//import org.springframework.cloud.netflix.ribbon.RibbonClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.sppt.enrollmentservice.studentenrollment.model.RegistrationDetails;
+
+@FeignClient(name="student-lookup-service", url="localhost:5000")
+//@FeignClient(name="currency-exchange-service")
+//@RibbonClient(name="currency-exchange-service")
+public interface StudentLookupServiceProxy {
+	@GetMapping("/student-lookup/{regId}")
+	public RegistrationDetails lookupStudent(@PathVariable String regId);
+}

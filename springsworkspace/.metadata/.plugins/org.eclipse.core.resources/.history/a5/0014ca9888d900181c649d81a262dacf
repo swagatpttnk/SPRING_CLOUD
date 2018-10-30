@@ -1,0 +1,50 @@
+package com.in28minutes.microservices.netflixzuulapigatewayserver;
+
+import org.springframework.stereotype.Component;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.netflix.zuul.ZuulFilter;
+import com.netflix.zuul.context.RequestContext;
+import com.netflix.zuul.exception.ZuulException;
+
+@Component
+public class ZuulLoggingFilter extends ZuulFilter{
+
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
+	@Override
+	public Object run() throws ZuulException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean shouldFilter() {
+		// evaluate condition on which this filter should be invoked
+		HttpServletRequest request = 
+				RequestContext.getCurrentContext().getRequest();
+		 
+				 if(null!=request.getAttribute("SKIP_AUTHENTICATION")) {
+					return true; 
+				 }else {
+					 return false;// do authentication 
+				 }
+		
+	}
+
+	@Override
+	public int filterOrder() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public String filterType() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
